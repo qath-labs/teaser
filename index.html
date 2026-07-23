@@ -3,30 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>qath — Navigate with intelligence.</title>
+    <title>qath — Navigate with intelligence</title>
     <meta name="theme-color" content="#fafafa" />
     <meta
       name="description"
       content="The path is already there, you just haven't found it yet. It's about knowing where to go next."
     />
+    <link rel="canonical" href="https://qath.ai/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="qath — Navigate with intelligence." />
+    <meta property="og:site_name" content="qath" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="qath — Navigate with intelligence" />
     <meta
       property="og:description"
       content="The path is already there, you just haven't found it yet. It's about knowing where to go next."
     />
     <meta property="og:url" content="https://qath.ai/" />
+    <meta property="og:image" content="https://qath.ai/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="qath — Navigate with intelligence" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="qath — Navigate with intelligence" />
+    <meta
+      name="twitter:description"
+      content="The path is already there, you just haven't found it yet. It's about knowing where to go next."
+    />
+    <meta name="twitter:image" content="https://qath.ai/og-image.png" />
+
+    <!-- Icons -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
 
@@ -37,8 +54,7 @@
         theme: {
           extend: {
             fontFamily: {
-              sans: ["Figtree", "sans-serif"],
-              figtree: ["Figtree", "sans-serif"],
+              sans: ["Figtree", "ui-sans-serif", "system-ui", "sans-serif"],
             },
             colors: {
               chalk: "#fafafa",
@@ -57,7 +73,6 @@
         transform: translate(-50%, -50%);
         width: min(115%, 820px);
         aspect-ratio: 1 / 1;
-        z-index: -1;
         pointer-events: none;
         background: conic-gradient(
           from 210deg at 50% 50%,
@@ -100,19 +115,56 @@
           background-position: -300% center;
         }
       }
+
+      @media (prefers-reduced-motion: reduce) {
+        .intelligence {
+          animation: none;
+        }
+      }
+
+      /* Windows High Contrast: gradient text is dropped, so restore a solid fill. */
+      @media (forced-colors: active) {
+        .intelligence {
+          background: none;
+          -webkit-text-fill-color: currentColor;
+          color: currentColor;
+          animation: none;
+        }
+        .hero-glow {
+          display: none;
+        }
+      }
     </style>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "qath",
+        "url": "https://qath.ai/",
+        "logo": "https://qath.ai/icon.svg",
+        "sameAs": [
+          "https://github.com/qath-labs",
+          "https://linkedin.com/company/qath-labs"
+        ]
+      }
+    </script>
   </head>
 
   <body
-    class="relative min-h-dvh bg-chalk px-8 py-4 flex flex-col justify-between overflow-hidden"
+    class="relative min-h-dvh bg-chalk px-8 py-4 flex flex-col justify-between"
   >
+    <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div class="hero-glow"></div>
+    </div>
+
     <nav
-      class="flex justify-between items-center gap-x-4 text-xs font-[300] text-black/40"
+      class="relative flex justify-between items-center gap-x-4 text-sm font-normal text-black/60"
     >
       <a
         href="/"
         aria-label="qath home"
-        class="text-black/40 transition-colors hover:text-black"
+        class="text-black/60 transition-colors hover:text-black"
       >
         <svg
           class="h-5 w-auto"
@@ -152,36 +204,37 @@
         <a
           href="https://github.com/qath-labs"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
+          aria-label="qath Labs on GitHub (opens in a new tab)"
           class="hover:text-black transition-colors"
           >Labs</a
         >
         <a
           href="https://linkedin.com/company/qath-labs"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
+          aria-label="qath updates on LinkedIn (opens in a new tab)"
           class="hover:text-black transition-colors"
           >Updates</a
         >
       </div>
     </nav>
 
-    <div
+    <main
       class="relative flex-1 flex flex-col justify-center max-w-3xl mx-auto w-full"
     >
-      <div class="hero-glow" aria-hidden="true"></div>
       <h1
-        class="text-5xl md:text-6xl font-[600] mb-2 md:mb-4 leading-[1.1] md:leading-[1.1] tracking-tight text-black"
+        class="text-5xl md:text-6xl font-semibold mb-2 md:mb-4 leading-[1.1] tracking-tight text-black"
       >
         Navigate with <span class="intelligence">intelligence</span>
       </h1>
-      <h2 class="text-xl md:text-2xl font-[300] text-black/50">
+      <p class="text-xl md:text-2xl font-light text-black/55">
         The path is already there, you just haven't found it yet. It's about
         knowing where to go next.
-      </h2>
-    </div>
+      </p>
+    </main>
 
-    <footer class="text-xs font-[300] text-black/40">
+    <footer class="relative text-sm font-normal text-black/60">
       Something new is on the way.
     </footer>
   </body>
